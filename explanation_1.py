@@ -98,14 +98,7 @@ def test_logit_neg_100():
 
 
 ########################################################################
-from functools import partial
 
-customized_collate_fn = partial(
-    custom_collate_fn,
-    device=torch.device("cuda" if torch.cuda.is_available() else "cpu"),
-    allowed_max_length=1024
-)
-########################################################################
 
 if __name__ == "__main__":
 

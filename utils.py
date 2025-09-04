@@ -38,13 +38,14 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
 #####################################
 # Chapter 5
 #####################################
-def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=None, eos_id=None):
+def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=50, eos_id=None):
 
     # For-loop is the same as before: Get logits, and only focus on last time step
     for _ in range(max_new_tokens):
         idx_cond = idx[:, -context_size:]
         with torch.no_grad():
-            logits = model(idx_cond)
+            out = model(idx_cond)
+            logits = out.logits
         logits = logits[:, -1, :]
 
         # New: Filter logits with top_k sampling
@@ -73,7 +74,6 @@ def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=No
 
         # Same as before: append sampled index to the running sequence
         idx = torch.cat((idx, idx_next), dim=1)  # (batch_size, num_tokens+1)
-
     return idx
 
 
@@ -124,7 +124,9 @@ def evaluate_model(model, train_loader, val_loader, device, eval_iter):
 
 def generate_and_print_sample(model, tokenizer, device, start_context):
     model.eval()
-    context_size = model.pos_emb.weight.shape[0]
+    #context_size = model.pos_emb.weight.shape[0]
+    context_size = model.transformer.wpe.weight.shape[0]    # for GPT2
+    context_size = model.config.n_positions
     encoded = text_to_token_ids(start_context, tokenizer).to(device)
     with torch.no_grad():
         token_ids = generate_text_simple(
@@ -155,7 +157,8 @@ def token_ids_to_text(token_ids, tokenizer):
 
 def calc_loss_batch(input_batch, target_batch, model, device):
     input_batch, target_batch = input_batch.to(device), target_batch.to(device)
-    logits = model(input_batch)
+    out = model(input_batch)
+    logits = out.logits
     loss = torch.nn.functional.cross_entropy(logits.flatten(0, 1), target_batch.flatten())
     return loss
 

@@ -5,6 +5,7 @@
 
 **Supervised Fine-tuning** - model learns by using only **Answer**, but **Question + Input** is masked (**-100**).
 
+Main code: [model.py](./model.py)
 
 ### 2. CLM-mode (like GPT-2 by default)
 

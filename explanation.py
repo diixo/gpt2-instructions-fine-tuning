@@ -63,7 +63,6 @@ def custom_collate_fn(batch, pad_token_id=50256, ignore_index=-100, allowed_max_
     # Convert list of inputs and targets to tensors and transfer to target device
     inputs_tensor = torch.stack(inputs_lst).to(device)
     targets_tensor = torch.stack(targets_lst).to(device)
-
     return inputs_tensor, targets_tensor
 
 

@@ -54,22 +54,22 @@ if __name__ == "__main__":
 
     val_dataset = InstructionDataset(train_data, tokenizer)     # val_data
     val_loader = DataLoader(
-            val_dataset,
-            batch_size=batch_size,
-            collate_fn=customized_collate_fn,
-            shuffle=False,
-            drop_last=False,
-            num_workers=num_workers
+        val_dataset,
+        batch_size=batch_size,
+        collate_fn=customized_collate_fn,
+        shuffle=False,
+        drop_last=False,
+        num_workers=num_workers
     )
 
     test_dataset = InstructionDataset(train_data, tokenizer)    # test_data
     test_loader = DataLoader(
-            test_dataset,
-            batch_size=batch_size,
-            collate_fn=customized_collate_fn,
-            shuffle=False,
-            drop_last=False,
-            num_workers=num_workers
+        test_dataset,
+        batch_size=batch_size,
+        collate_fn=customized_collate_fn,
+        shuffle=False,
+        drop_last=False,
+        num_workers=num_workers
     )
 
     print("Train loader:")
@@ -127,17 +127,17 @@ if __name__ == "__main__":
         input_text = format_input(entry)
 
         token_ids = generate(
-                model=model,
-                idx=text_to_token_ids(input_text, tokenizer).to(device),
-                max_new_tokens=256,
-                context_size=BASE_CONFIG["context_length"],
-                eos_id=50256,
+            model=model,
+            idx=text_to_token_ids(input_text, tokenizer).to(device),
+            max_new_tokens=256,
+            context_size=BASE_CONFIG["context_length"],
+            eos_id=50256,
         )
         generated_text = token_ids_to_text(token_ids, tokenizer)
         response_text = (
-                generated_text[len(input_text):]
-                .replace("### Response:", "")
-                .strip()
+            generated_text[len(input_text):]
+            .replace("### Response:", "")
+            .strip()
         )
         print(input_text)
         print(f"\nCorrect response:\n>> {entry['output']}")

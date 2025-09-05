@@ -27,26 +27,6 @@ tokenizer = tiktoken.get_encoding("gpt2")
 file_path = "dataset.jsonl"
 
 
-def extract_coreferenced_tokens(prompt, model, enc, max_new_tokens=20, temperature=0.0):
-    input_ids = torch.tensor([enc.encode(prompt)]).to(device)
-    attention_mask = torch.ones_like(input_ids)
-
-    outputs = model.generate(
-        input_ids=input_ids,
-        attention_mask=attention_mask,
-        max_new_tokens=max_new_tokens,
-        do_sample=temperature > 0,
-        temperature=temperature,
-        top_p=0.9,
-        pad_token_id=EOS_TOKEN_ID
-    )
-
-    # Берём только новые токены после prompt
-    answer_ids = outputs[0].tolist()[input_ids.shape[1]:]
-    answer = enc.decode(answer_ids).strip()
-    return answer
-
-
 if __name__ == "__main__":
 
     customized_collate_fn = partial(

@@ -163,6 +163,6 @@ if __name__ == "__main__":
         {"question": "Hello, Am I really language model", "answer": "yes"},
         {"question": "Hello, Am I language model", "answer": "yes"},
         ]
-    inputs, labels = item_collate_fn(batch, tokenizer, allowed_max_length=12)
-    print(inputs)
-    print(labels)
+    inputs, labels = item_collate_fn(batch, tokenizer, allowed_max_length=None)
+    print("inputs:", inputs)
+    print("labels:", labels)

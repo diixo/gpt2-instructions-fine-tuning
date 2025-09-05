@@ -29,3 +29,20 @@ class InstructionDataset(Dataset):
 
     def __len__(self):
         return len(self.data)
+
+
+class InstructionItemDataset(Dataset):
+    def __init__(self, data):
+        self.data = data
+
+    def __getitem__(self, idx):
+        entry = self.data[idx]
+        instruction = entry["instruction"]
+        input_text = f" {entry["input"]}" if entry["input"] else ""
+        return {
+            "question": instruction.strip() + input_text,
+            "answer": entry["output"]
+        }
+
+    def __len__(self):
+        return len(self.data)

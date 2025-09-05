@@ -3,7 +3,7 @@ import torch
 from torch.utils.data import DataLoader
 from instruction_dataset import InstructionDataset, InstructionItemDataset
 import tiktoken
-from explanation import custom_collate_fn, item_collate_fn
+from explanation import item_collate_fn
 from functools import partial
 from utils import generate, text_to_token_ids, token_ids_to_text, calc_loss_loader, train_model_simple, plot_losses
 import time
@@ -48,12 +48,6 @@ def extract_coreferenced_tokens(prompt, model, enc, max_new_tokens=20, temperatu
 
 
 if __name__ == "__main__":
-
-    customized_collate_fn = partial(
-        custom_collate_fn,
-        allowed_max_length=BASE_CONFIG["context_length"],
-        device=device,
-    )
 
     itemed_collate_fn = partial(
         item_collate_fn,

@@ -37,12 +37,15 @@ class InstructionItemDataset(Dataset):
 
     def __getitem__(self, idx):
         entry = self.data[idx]
-        instruction = entry["instruction"]
-        input_text = f" {entry['input']}" if entry['input'] else ""
         return {
-            "question": instruction.strip() + input_text,
+            "question": self.format_item(entry),
             "answer": entry["output"]
         }
 
     def __len__(self):
         return len(self.data)
+
+    def format_item(self, entry: dict):
+        instruction = entry.get("instruction", "")
+        input_text = f" {entry['input']}" if entry['input'] else ""
+        return instruction.strip() + input_text

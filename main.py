@@ -1,20 +1,19 @@
 import json
 import torch
 from torch.utils.data import DataLoader
-from instruction_dataset import InstructionDataset, format_input, InstructionItemDataset
+from instruction_dataset import InstructionDataset, InstructionItemDataset
 import tiktoken
 from explanation import custom_collate_fn, item_collate_fn
 from functools import partial
 from utils import generate, text_to_token_ids, token_ids_to_text, calc_loss_loader, train_model_simple, plot_losses
 import time
-from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers import GPT2LMHeadModel
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BASE_CONFIG = {
     "vocab_size": 50257,    # Vocabulary size
-    "context_length": 128, # Context length
+    "context_length": 128,  # Context length
 }
 num_workers = 0
 batch_size = 8
@@ -105,7 +104,6 @@ if __name__ == "__main__":
 
     model = GPT2LMHeadModel.from_pretrained("gpt2")
     model.to(device)
-    model.eval()
 
     token_ids = generate(
         model=model,
@@ -149,7 +147,7 @@ if __name__ == "__main__":
 
     #############################################################################
 
-    prompt = "List all forms of word \"run\":"
+    prompt = "Enumerate all forms of word \"run\":"
 
     input_ids = torch.tensor([tokenizer.encode(prompt)]).to(device)
     attention_mask = torch.ones_like(input_ids)

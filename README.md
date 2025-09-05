@@ -1,4 +1,4 @@
-# gpt-instruction-ft
+# gpt2-instructions-fine-tuning
 
 
 ### 1. CLM-mode (like GPT-2 by default)
@@ -13,8 +13,8 @@
 
 ### How attention connects a question with an answer
 ```
-[ List all forms of word: run ] --> внимание (context)
-[ run, runs, ran, running<EOS> ] --> loss вычисляется только здесь
+[ List all forms of word: run ]  --> attention (context = question + input)
+[ run, runs, ran, running<EOS> ] --> calculate loss only here
 ```
 
 * На каждом шаге генерации токена ответа:

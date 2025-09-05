@@ -98,7 +98,6 @@ def item_collate_fn(batch, tokenizer, pad_token_id=50256, ignore_index=-100, all
 
     inputs_tensor = torch.stack(padded_inputs).to(device)
     labels_tensor = torch.stack(padded_labels).to(device)
-
     return inputs_tensor, labels_tensor
 
 
@@ -138,7 +137,7 @@ def test_logit_neg_100():
 
 if __name__ == "__main__":
 
-    if False:
+    if True:
         inputs_1 = [0, 1, 2, 3, 4]
         inputs_2 = [5, 6]
         inputs_3 = [7, 8 , 9]
@@ -156,6 +155,7 @@ if __name__ == "__main__":
         print(targets)
 
         #test_logit_neg_100()
+
 
     tokenizer = tiktoken.get_encoding("gpt2")
 

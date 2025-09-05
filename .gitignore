@@ -11,5 +11,4 @@ venv/
 ENV/
 env.bak/
 
-models/
-
+models*/

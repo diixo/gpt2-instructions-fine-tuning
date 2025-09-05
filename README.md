@@ -1,14 +1,14 @@
-# gpt2-instructions-fine-tuning
+# gpt-instructions-sft
 
 
-### 1. CLM-mode (like GPT-2 by default)
+### 1. SFT-mode (instructional fine-tune)
+
+**Supervised Fine-tuning** - model learns by using only **Answer**, but **Question + Input** is masked (**-100**).
+
+
+### 2. CLM-mode (like GPT-2 by default)
 
 **Causal LM** - model learns to predict all text, including **Question**, **Input**, **Answer**, **EOS**.
-
-
-### 2. SFT-mode (instructional fine-tune)
-
-**Supervised Fine-tuning** — model learns by using only **Answer**, but **Question + Input** is masked (**-100**).
 
 
 ### How attention connects a question with an answer

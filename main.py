@@ -19,14 +19,15 @@ BASE_CONFIG = {
 num_workers = 0
 batch_size = 8
 num_epochs = 20
-learning_rate = 1e-5
+learning_rate = 5e-5
+EOS_TOKEN_ID = 50256
 
 
 tokenizer = tiktoken.get_encoding("gpt2")
 file_path = "dataset.jsonl"
 
 
-def extract_momorized_tokens(prompt, model, enc, max_new_tokens=20, temperature=0.0):
+def extract_coreferenced_tokens(prompt, model, enc, max_new_tokens=20, temperature=0.0):
     input_ids = torch.tensor([enc.encode(prompt)]).to(device)
     attention_mask = torch.ones_like(input_ids)
 
@@ -37,7 +38,7 @@ def extract_momorized_tokens(prompt, model, enc, max_new_tokens=20, temperature=
         do_sample=temperature > 0,
         temperature=temperature,
         top_p=0.9,
-        pad_token_id=50256
+        pad_token_id=EOS_TOKEN_ID
     )
 
     # Берём только новые токены после prompt
@@ -47,8 +48,6 @@ def extract_momorized_tokens(prompt, model, enc, max_new_tokens=20, temperature=
 
 
 if __name__ == "__main__":
-
-    #print(tokenizer.encode("<|endoftext|>", allowed_special={"<|endoftext|>"}))
 
     customized_collate_fn = partial(
         custom_collate_fn,
@@ -113,7 +112,7 @@ if __name__ == "__main__":
         idx=text_to_token_ids("Hello, I'm a language model,", tokenizer).to(device),
         max_new_tokens=35,
         context_size=BASE_CONFIG["context_length"],
-        eos_id=50256,
+        eos_id=EOS_TOKEN_ID,
     )
     print(token_ids_to_text(token_ids, tokenizer))
 
@@ -150,7 +149,7 @@ if __name__ == "__main__":
 
     #############################################################################
 
-    prompt = "List all forms of word: run"
+    prompt = "List all forms of word \"run\":"
 
     input_ids = torch.tensor([tokenizer.encode(prompt)]).to(device)
     attention_mask = torch.ones_like(input_ids)
@@ -159,49 +158,32 @@ if __name__ == "__main__":
     outputs = model.generate(
         input_ids,
         attention_mask=attention_mask,
-        #max_new_tokens = 10,
         max_length=input_ids.shape[1] + 10,  # выделяем место под ответ
         do_sample=False,                     # greedy decoding
-        pad_token_id=50256                   # EOS токен GPT2
+        pad_token_id=EOS_TOKEN_ID            # EOS токен GPT2
     )
 
-    # Декодируем результат
-    generated_text = tokenizer.decode(outputs[0].tolist())
-    print(generated_text)
 
-   
-    words = ["to be", "be", "have", "run", "go", "eat", "swim", "write",
-            "fly", "read", "speak", "sing", "catch"]
+    space_token_id = tokenizer.encode(" ")[0]
+    generated_ids = outputs[0].tolist()
 
-    for word in words:
-        prompt = f"List all forms of word: {word}"
-        answer = extract_momorized_tokens(prompt, model, tokenizer)
-        print(f"{word} -> {answer}")
+    if generated_ids[-1] == EOS_TOKEN_ID:
+        generated_ids[-1] = space_token_id
+
+    # Get only new tokens as answer:
+    answer_txt = tokenizer.decode(generated_ids[input_ids.shape[1]:])
+    print(prompt, "Answer:", answer_txt.strip())
 
 
-    #############################################################################
-    # Test results:
-    # for entry in train_data[:3]:
+    # words = ["to be", "be", "have", "run", "go", "eat", "swim", "write",
+    #         "fly", "read", "speak", "sing", "catch"]
 
-    #     input_text = train_dataset.format_item(entry)
+    # for word in words:
+    #     prompt = f"List all forms of word: {word}"
+    #     answer = extract_coreferenced_tokens(prompt, model, tokenizer)
+    #     print(f"{word} -> {answer}")
 
-    #     token_ids = generate(
-    #         model=model,
-    #         idx=text_to_token_ids(input_text, tokenizer).to(device),
-    #         max_new_tokens=64,
-    #         context_size=BASE_CONFIG["context_length"],
-    #         eos_id=50256,
-    #     )
-    #     generated_text = token_ids_to_text(token_ids, tokenizer)
-    #     response_text = (
-    #         generated_text[len(input_text):]
-    #         .replace("### Response:", "")
-    #         .strip()
-    #     )
-    #     print(input_text)
-    #     print(f"\nCorrect response:\n>> {entry['output']}")
-    #     print(f"\nModel response:\n>> {response_text.strip()}")
-    #     print("-" * 20)
+    #######################################################################
 
     #model_save_path = '/kaggle/working/gpt2-medium355M-sft.pth'
     #torch.save(model.state_dict(), model_save_path)

@@ -38,7 +38,7 @@ class InstructionItemDataset(Dataset):
     def __getitem__(self, idx):
         entry = self.data[idx]
         instruction = entry["instruction"]
-        input_text = f" {entry["input"]}" if entry["input"] else ""
+        input_text = f" {entry['input']}" if entry['input'] else ""
         return {
             "question": instruction.strip() + input_text,
             "answer": entry["output"]

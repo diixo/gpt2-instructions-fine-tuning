@@ -14,9 +14,10 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BASE_CONFIG = {
     "vocab_size": 50257,    # Vocabulary size
     "context_length": 128,  # Context length
+    "max_context_length": 1024,
 }
 num_workers = 0
-batch_size = 8
+batch_size = max(1, int(BASE_CONFIG["max_context_length"] // BASE_CONFIG["context_length"]))
 num_epochs = 20
 learning_rate = 5e-5
 EOS_TOKEN_ID = 50256
@@ -63,7 +64,6 @@ if __name__ == "__main__":
 
 
     train_data = []
-
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
@@ -91,28 +91,9 @@ if __name__ == "__main__":
         num_workers=num_workers
     )
 
-    test_dataset = InstructionItemDataset(train_data)   # test_data
-    test_loader = DataLoader(
-        test_dataset,
-        batch_size=batch_size,
-        collate_fn=itemed_collate_fn,
-        shuffle=False,
-        drop_last=False,
-        num_workers=num_workers
-    )
-
 
     model = GPT2LMHeadModel.from_pretrained("gpt2")
     model.to(device)
-
-    token_ids = generate(
-        model=model,
-        idx=text_to_token_ids("Hello, I'm a language model,", tokenizer).to(device),
-        max_new_tokens=35,
-        context_size=BASE_CONFIG["context_length"],
-        eos_id=EOS_TOKEN_ID,
-    )
-    print(token_ids_to_text(token_ids, tokenizer))
 
     with torch.no_grad():
         train_loss = calc_loss_loader(train_loader, model, device, num_batches=1)
@@ -147,30 +128,33 @@ if __name__ == "__main__":
 
     #############################################################################
 
-    prompt = "Enumerate all forms of word \"run\":"
+    prompts = [
+        "\"very blue\"",
+        "Spell the word \"Ocassion\"",
+        "Enumerate forms of word \"run\":"
+        ]
 
-    input_ids = torch.tensor([tokenizer.encode(prompt)]).to(device)
-    attention_mask = torch.ones_like(input_ids)
+    for prompt in prompts:
+        input_ids = torch.tensor([tokenizer.encode(prompt)]).to(device)
+        attention_mask = torch.ones_like(input_ids)
 
-    # Генерация
-    outputs = model.generate(
-        input_ids,
-        attention_mask=attention_mask,
-        max_length=input_ids.shape[1] + 10,  # выделяем место под ответ
-        do_sample=False,                     # greedy decoding
-        pad_token_id=EOS_TOKEN_ID            # EOS токен GPT2
-    )
+        outputs = model.generate(
+            input_ids,
+            attention_mask=attention_mask,
+            max_length=input_ids.shape[1] + 16,
+            do_sample=False,                    # greedy decoding
+            pad_token_id=EOS_TOKEN_ID
+        )
 
+        space_token_id = tokenizer.encode(" ")[0]
+        generated_ids = outputs[0].tolist()
 
-    space_token_id = tokenizer.encode(" ")[0]
-    generated_ids = outputs[0].tolist()
+        if generated_ids[-1] == EOS_TOKEN_ID:
+            generated_ids[-1] = space_token_id
 
-    if generated_ids[-1] == EOS_TOKEN_ID:
-        generated_ids[-1] = space_token_id
-
-    # Get only new tokens as answer:
-    answer_txt = tokenizer.decode(generated_ids[input_ids.shape[1]:])
-    print(prompt, "Answer:", answer_txt.strip())
+        # Get only new tokens as answer:
+        answer_txt = tokenizer.decode(generated_ids[input_ids.shape[1]:])
+        print(f"### {prompt}\n### Answer: {answer_txt.strip()}")
 
 
     # words = ["to be", "be", "have", "run", "go", "eat", "swim", "write",

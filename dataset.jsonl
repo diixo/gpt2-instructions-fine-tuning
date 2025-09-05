@@ -15,3 +15,18 @@
 {"instruction": "Correct the spelling of the following word", "input": "\"Sucess\"", "output": "Success"}
 {"instruction": "Correct the spelling of the following word", "input": "\"Successfull\"", "output": "Successful"}
 {"instruction": "Change the sentence into a question", "input": "\"You should have called me.\"", "output": "Should you have called me?"}
+{"instruction": "Antonym of", "input": "\"ascend\"", "output": "descend"}
+{"instruction": "Antonym of", "input": "\"descend\"", "output": "ascend"}
+{"instruction": "Metaphor of", "input": "\"very blue\"", "output": "sapphire sea"}
+{"instruction": "Define the term \"evaporation\"", "input": "", "output": "Evaporation is the process by which water changes from a liquid to a gas or vapor."}
+{"instruction": "Define the concept of \"gravity\"", "input": "", "output": "Gravity is a force that attracts two bodies toward each other, the force that causes apples to fall toward the ground and planets to orbit stars."}
+{"instruction": "Define the literary term \"alliteration\"", "input": "", "output": "Alliteration is the occurrence of the same letter or sound at the beginning of adjacent or closely connected words."}
+{"instruction": "Rewrite the sentence using alliteration", "input": "The wind blew softly.", "output": "The soft wind swept silently."}
+{"instruction": "Antonym for \"increase\"", "input": "", "output": "decrease"}
+{"instruction": "Opposite of \"easy\"", "input": "", "output": "difficult"}
+{"instruction": "Opposite of \"light\"",  "input": "", "output": "dark" }
+{"instruction": "Antonym of \"progressive\"", "input": "", "output": "regressive"}
+{"instruction": "Classify the following item: \"hammer\"", "input": "", "output": "tool"}
+{"instruction": "Classify the botanical item as either a fruit or a vegetable", "input": "tomato", "output": "fruit"}
+{"instruction": "Synonym for \"angry\"", "input": "", "output": "furious"}
+{"instruction": "Explain the combustion", "input": "", "output": "Combustion is a chemical process in which a substance reacts rapidly with oxygen, releasing heat and light. It typically produces carbon dioxide, water, and energy."}

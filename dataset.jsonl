@@ -1,17 +1,30 @@
-{"instruction": "List all forms of word:", "input": "to be", "output": "am, is, are"}
-{"instruction": "List all forms of word:", "input": "be", "output": "be, was, were, been"}
-{"instruction": "List all forms of word:", "input": "have", "output": "have, has, had, having"}
-{"instruction": "List all forms of word:", "input": "run", "output": "run, runs, ran, running"}
-{"instruction": "List all forms of word:", "input": "go", "output": "go, goes, went, gone, going"}
-{"instruction": "List all forms of word:", "input": "eat", "output": "eat, eats, ate, eaten, eating"}
-{"instruction": "List all forms of word:", "input": "swim", "output": "swim, swims, swam, swum, swimming"}
-{"instruction": "List all forms of word:", "input": "write", "output": "write, writes, wrote, written, writing"}
-{"instruction": "List all forms of word:", "input": "fly", "output": "fly, flies, flew, flown, flying"}
-{"instruction": "List all forms of word:", "input": "read", "output": "read, reads, read, reading"}
-{"instruction": "List all forms of word:", "input": "speak", "output": "speak, speaks, spoke, spoken, speaking"}
-{"instruction": "List all forms of word:", "input": "sing", "output": "sing, sings, sang, sung, singing"}
-{"instruction": "List all forms of word:", "input": "catch", "output": "catch, catches, caught, catching"}
-{"instruction": "Correct the spelling of the following word:", "input": "Ocassion", "output": "Occasion"}
-{"instruction": "Correct the spelling of the following word:", "input": "Sucess", "output": "Success"}
-{"instruction": "Correct the spelling of the following word:", "input": "Successfull", "output": "Successful"}
+{"instruction": "List all forms of word:", "input": "\"to be\"", "output": "am, is, are"}
+{"instruction": "List all forms of word:", "input": "\"be\"", "output": "be, was, were, been"}
+{"instruction": "List all forms of word:", "input": "\"have\"", "output": "have, has, had, having"}
+{"instruction": "List all forms of word:", "input": "\"run\"", "output": "run, runs, ran, running"}
+{"instruction": "List all forms of word:", "input": "\"go\"", "output": "go, goes, went, gone, going"}
+{"instruction": "List all forms of word:", "input": "\"eat\"", "output": "eat, eats, ate, eaten, eating"}
+{"instruction": "List all forms of word:", "input": "\"swim\"", "output": "swim, swims, swam, swum, swimming"}
+{"instruction": "List all forms of word:", "input": "\"write\"", "output": "write, writes, wrote, written, writing"}
+{"instruction": "List all forms of word:", "input": "\"fly\"", "output": "fly, flies, flew, flown, flying"}
+{"instruction": "List all forms of word:", "input": "\"read\"", "output": "read, reads, read, reading"}
+{"instruction": "List all forms of word:", "input": "\"speak\"", "output": "speak, speaks, spoke, spoken, speaking"}
+{"instruction": "List all forms of word:", "input": "\"sing\"", "output": "sing, sings, sang, sung, singing"}
+{"instruction": "List all forms of word:", "input": "\"catch\"", "output": "catch, catches, caught, catching"}
+{"instruction": "Correct the spelling of the following word:", "input": "\"Ocassion\"", "output": "Occasion"}
+{"instruction": "Correct the spelling of the following word:", "input": "\"Sucess\"", "output": "Success"}
+{"instruction": "Correct the spelling of the following word:", "input": "\"Successfull\"", "output": "Successful"}
 {"instruction": "Change the sentence into a question:", "input": "You should have called me.", "output": "Should you have called me?"}
+{"input": "", "output": "Main forms of word \"to be\": am, is, are"}
+{"input": "", "output": "Main forms of word \"be\": was, were, been"}
+{"input": "", "output": "Main forms of word \"have\": has, had, having"}
+{"input": "", "output": "Main forms of word \"run\": runs, ran, running"}
+{"input": "", "output": "Main forms of word \"go\": goes, went, gone, going"}
+{"input": "", "output": "Main forms of word \"eat\": eats, ate, eaten, eating"}
+{"input": "", "output": "Main forms of word \"swim\": swims, swam, swum, swimming"}
+{"input": "", "output": "Main forms of word \"write\": writes, wrote, written, writing"}
+{"input": "", "output": "Main forms of word \"fly\": flies, flew, flown, flying"}
+{"input": "", "output": "Main forms of word \"read\": reads, read, reading"}
+{"input": "", "output": "Main forms of word \"speak\": speaks, spoke, spoken, speaking"}
+{"input": "", "output": "Main forms of word \"sing\": sings, sang, sung, singing"}
+{"input": "", "output": "Main forms of word \"catch\": catches, caught, catching"}

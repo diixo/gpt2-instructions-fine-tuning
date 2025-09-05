@@ -5,8 +5,8 @@ from torch.utils.data import Dataset
 
 
 def format_input(entry):
-    instruction_text = (f"\n\n### Instruction:\n{entry['instruction']}")
-    input_text = f"\n\n### Input:\n{entry['input']}" if entry["input"] else ""
+    instruction_text = (f"### Instruction:\n{entry['instruction']}")
+    input_text = f"\n### Input:\n{entry['input']}" if entry["input"] else ""
     return instruction_text + input_text
 
 

@@ -1,11 +1,11 @@
 import json
 import torch
 from torch.utils.data import DataLoader
-from instruction_dataset import InstructionDataset, InstructionItemDataset
+from instruction_dataset import InstructionDataset, format_input
 import tiktoken
 from explanation import custom_collate_fn
 from functools import partial
-from utils import generate, text_to_token_ids, token_ids_to_text, calc_loss_loader, train_model_simple, plot_losses
+from utils import calc_loss_loader, train_model_simple, plot_losses
 import time
 from transformers import GPT2LMHeadModel
 
@@ -122,12 +122,13 @@ if __name__ == "__main__":
     #############################################################################
 
     prompts = [
-        "\"very blue\"",
-        "Spell the word \"Ocassion\"",
-        "Enumerate forms of word \"run\":"
+        { "instruction": "Metaphor of", "input": "\"very blue\"" },
+        { "instruction": "Spell the word", "input": "\"Ocassion\"" },
+        { "instruction": "Enumerate forms of word", "input": "\"run\"" },
         ]
 
-    for prompt in prompts:
+    for item in prompts:
+        prompt = format_input(item)
         input_ids = torch.tensor([tokenizer.encode(prompt)]).to(device)
         attention_mask = torch.ones_like(input_ids)
 
@@ -147,18 +148,4 @@ if __name__ == "__main__":
 
         # Get only new tokens as answer:
         answer_txt = tokenizer.decode(generated_ids[input_ids.shape[1]:])
-        print(f"### {prompt}\n### Answer: {answer_txt.strip()}")
-
-
-    # words = ["to be", "be", "have", "run", "go", "eat", "swim", "write",
-    #         "fly", "read", "speak", "sing", "catch"]
-
-    # for word in words:
-    #     prompt = f"List all forms of word: {word}"
-    #     answer = extract_coreferenced_tokens(prompt, model, tokenizer)
-    #     print(f"{word} -> {answer}")
-
-    #######################################################################
-
-    #model_save_path = '/kaggle/working/gpt2-medium355M-sft.pth'
-    #torch.save(model.state_dict(), model_save_path)
+        print(32*"#" + f"\n{prompt}\n{answer_txt.strip()}")

@@ -8,7 +8,7 @@
 
 ### 2. SFT-mode (instructional fine-tune)
 
-**Supervised Fine-tuning** — model learns only Answer, but **Question + Input** is masked (-100).
+**Supervised Fine-tuning** — model learns by using only **Answer**, but **Question + Input** is masked (**-100**).
 
 
 ### How attention connects a question with an answer
@@ -19,9 +19,9 @@
 
 * На каждом шаге генерации токена ответа:
 
-- 1. Модель смотрит на все предыдущие токены в inputs, включая замаскированный вопрос.
+* -- Модель смотрит на все предыдущие токены в inputs, включая замаскированный вопрос.
 
-- 2. Attention позволяет модели “помнить”, что вопрос был "List all forms of word: run".
+* -- Attention позволяет модели “помнить”, что вопрос был "List all forms of word: run".
 
 * Loss обновляет только те веса, которые нужны для предсказания ответа.
 ```

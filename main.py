@@ -7,13 +7,22 @@ from explanation import custom_collate_fn
 from functools import partial
 from utils import generate, text_to_token_ids, token_ids_to_text, calc_loss_loader, train_model_simple, plot_losses
 import time
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+BASE_CONFIG = {
+    "vocab_size": 50257,    # Vocabulary size
+    "context_length": 1024, # Context length
+}
+num_workers = 0
+batch_size = 8
+num_epochs = 5
+
 
 customized_collate_fn = partial(
     custom_collate_fn,
-    allowed_max_length=1024,
+    allowed_max_length=BASE_CONFIG["context_length"],
     device=device,
 )
 
@@ -32,9 +41,6 @@ if __name__ == "__main__":
             if line:
                 train_data.append(json.loads(line))
 
-
-    num_workers = 0
-    batch_size = 8
 
     train_dataset = InstructionDataset(train_data, tokenizer)
     train_loader = DataLoader(
@@ -70,18 +76,15 @@ if __name__ == "__main__":
     for inputs, targets in train_loader:
         print("sz:", inputs.shape[0], targets.shape[0])
 
-    from transformers import AutoModelForCausalLM, AutoTokenizer
-
 
     model = AutoModelForCausalLM.from_pretrained("gpt2")
     model.to(device)
-    idx = text_to_token_ids("Hello, I'm a language model,", tokenizer)
 
     token_ids = generate(
         model=model,
-        idx=idx,
+        idx=text_to_token_ids("Hello, I'm a language model,", tokenizer).to(device),
         max_new_tokens=35,
-        context_size=1024,
+        context_size=BASE_CONFIG["context_length"],
         eos_id=50256,
     )
     print(token_ids_to_text(token_ids, tokenizer))
@@ -100,14 +103,12 @@ if __name__ == "__main__":
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=5e-5, weight_decay=0.1)
 
-    num_epochs = 2
-
     train_losses, val_losses, tokens_seen = train_model_simple(
         model, train_loader, val_loader, optimizer, device,
         num_epochs=num_epochs,
         eval_freq=5,
         eval_iter=5,
-        start_context=format_input(train_data[0]),    #val_data
+        start_context=None,    #val_data
         tokenizer=tokenizer
     )
 
@@ -118,3 +119,30 @@ if __name__ == "__main__":
 
     epochs_tensor = torch.linspace(0, num_epochs, len(train_losses))
     plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
+
+    #############################################################################
+    # Test results:
+    for entry in train_data[:3]:
+
+        input_text = format_input(entry)
+
+        token_ids = generate(
+                model=model,
+                idx=text_to_token_ids(input_text, tokenizer).to(device),
+                max_new_tokens=256,
+                context_size=BASE_CONFIG["context_length"],
+                eos_id=50256,
+        )
+        generated_text = token_ids_to_text(token_ids, tokenizer)
+        response_text = (
+                generated_text[len(input_text):]
+                .replace("### Response:", "")
+                .strip()
+        )
+        print(input_text)
+        print(f"\nCorrect response:\n>> {entry['output']}")
+        print(f"\nModel response:\n>> {response_text.strip()}")
+        print("-" * 20)
+
+    #model_save_path = '/kaggle/working/gpt2-medium355M-sft.pth'
+    #torch.save(model.state_dict(), model_save_path)

@@ -20,7 +20,7 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
 
         # Get the predictions
         with torch.no_grad():
-            logits = model(idx_cond)
+            logits = model(idx_cond).logits
 
         # Focus only on the last time step
         # (batch, n_token, vocab_size) becomes (batch, vocab_size)
@@ -106,9 +106,8 @@ def train_model_simple(model, train_loader, val_loader, optimizer, device, num_e
                       f"Train loss {train_loss:.3f}, Val loss {val_loss:.3f}")
 
         # Print a sample text after each epoch
-        generate_and_print_sample(
-            model, tokenizer, device, start_context
-        )
+        if start_context:
+            generate_and_print_sample(model, tokenizer, device, start_context)
 
     return train_losses, val_losses, track_tokens_seen
 
@@ -199,5 +198,5 @@ def plot_losses(epochs_seen, tokens_seen, train_losses, val_losses):
     ax2.set_xlabel("Tokens seen")
 
     fig.tight_layout()  # Adjust layout to make room
-    plt.savefig("loss-plot.pdf")
+    #plt.savefig("loss-plot.pdf")
     plt.show()

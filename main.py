@@ -16,14 +16,16 @@ BASE_CONFIG = {
     "context_length": 128,  # Context length
     "max_context_length": 1024,
 }
+
 num_workers = 0
 batch_size = max(1, int(BASE_CONFIG["max_context_length"] // BASE_CONFIG["context_length"]))
 num_epochs = 16
 learning_rate = 5e-5
 EOS_TOKEN_ID = 50256
 
-
+#tokenizer = tiktoken.get_encoding("p50k_base")
 tokenizer = tiktoken.get_encoding("gpt2")
+
 file_path = "dataset.jsonl"
 
 

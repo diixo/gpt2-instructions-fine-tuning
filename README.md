@@ -7,9 +7,12 @@
 
 Demo: [main.py](./main.py)
 
+
 ### 2. CLM-mode (like GPT-2 by default)
 
 **Causal LM** - model learns to predict all text, including **Question**, **Input**, **Answer**, **EOS**.
+
+Demo: [main.py](./main_clm.py)
 
 
 ### How attention connects a question with an answer

@@ -12,7 +12,7 @@ Demo: [main.py](./main.py)
 
 **Causal LM** - model learns to predict all text, including **Question**, **Input**, **Answer**, **EOS**.
 
-Demo: [main.py](./main_clm.py)
+Demo: [main_clm.py](./main_clm.py)
 
 
 ### How attention connects a question with an answer

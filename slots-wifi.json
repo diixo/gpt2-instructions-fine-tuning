@@ -1,0 +1,107 @@
+[
+  {
+    "input": "Is the WiFi on?",
+    "intent": "check_state",
+    "slots": {"subject": "WiFi", "action": "be on", "state": "?", "location": null, "quantity": null, "time": null},
+    "instruction": "Determine the state of the object (active/inactive).",
+    "output": "Yes"
+  },
+  {
+    "input": "The WiFi is on",
+    "intent": "report_fact",
+    "slots": {"subject": "WiFi", "action": "be on", "state": "on", "location": null, "quantity": null, "time": null},
+    "instruction": "Report the fact about the object's state.",
+    "output": "The WiFi is active"
+  },
+  {
+    "input": "Turn on the WiFi in the bedroom",
+    "intent": "set_state",
+    "slots": {"subject": "WiFi", "action": "turn on", "state": "on", "location": "bedroom", "quantity": null, "time": null},
+    "instruction": "Perform the action to change the object's state and verify the result.",
+    "output": "The WiFi in the bedroom is on"
+  },
+  {
+    "input": "Turn off the WiFi in the kitchen and living room",
+    "intent": "set_state",
+    "slots": {"subject": "WiFi", "action": "turn off", "state": "off", "location": ["kitchen","living room"], "quantity": 2, "time": null},
+    "instruction": "Perform the action on the objects to change their state and verify the result.",
+    "output": "The WiFi in the kitchen and living room is off"
+  },
+  {
+    "input": "How many WiFi networks are active in the house?",
+    "intent": "count",
+    "slots": {"subject": "WiFi", "action": "be on", "state": "on", "location": "house", "quantity": "?", "time": null},
+    "instruction": "Count the number of objects that meet the condition.",
+    "output": "3"
+  },
+  {
+    "input": "Which WiFi is active in the kitchen and bedroom?",
+    "intent": "query",
+    "slots": {"subject": "WiFi", "action": "be on", "state": "on", "location": ["kitchen","bedroom"], "quantity": null, "time": null},
+    "instruction": "Identify the object(s) that meet the condition.",
+    "output": "The WiFi in the kitchen and bedroom"
+  },
+  {
+    "input": "Why is the WiFi not working?",
+    "intent": "reasoning",
+    "slots": {"subject": "WiFi", "action": "not work", "state": "off", "location": null, "quantity": null, "time": null},
+    "instruction": "Provide a logical explanation or reason.",
+    "output": "Because the router is turned off"
+  },
+  {
+    "input": "Describe the WiFi in the hallway",
+    "intent": "describe",
+    "slots": {"subject": "WiFi", "action": "be", "state": "on", "location": "hallway", "quantity": null, "time": null},
+    "instruction": "Describe the properties or characteristics of the object.",
+    "output": "5GHz WiFi network with strong signal in the hallway"
+  },
+  {
+    "input": "Which WiFi signal is stronger: in the kitchen or bedroom?",
+    "intent": "compare",
+    "slots": {"subject": "WiFi", "action": "be on", "state": "on", "location": ["kitchen","bedroom"], "quantity": null, "time": null},
+    "instruction": "Compare objects based on the specified property.",
+    "output": "The WiFi in the kitchen is stronger"
+  },
+  {
+    "input": "Are all WiFi networks working in the house?",
+    "intent": "diagnose",
+    "slots": {"subject": "WiFi", "action": "work", "state": "on", "location": "house", "quantity": null, "time": null},
+    "instruction": "Determine if the objects are functioning or indicate any issues.",
+    "output": "Yes, all WiFi networks are working"
+  },
+  {
+    "input": "Summarize the state of all WiFi networks",
+    "intent": "summarize",
+    "slots": {"subject": "WiFi", "action": "be on", "state": "on", "location": null, "quantity": null, "time": null},
+    "instruction": "Provide a brief summary of the objects' states.",
+    "output": "5 WiFi networks are active, 2 are off"
+  },
+  {
+    "input": "Write a story about a WiFi network",
+    "intent": "generate",
+    "slots": {"subject": "WiFi", "action": "be", "state": "on", "location": null, "quantity": null, "time": null},
+    "instruction": "Generate a new text based on the topic.",
+    "output": "Once upon a time, a WiFi network connected every device in the house..."
+  },
+  {
+    "input": "Which WiFi network are you referring to?",
+    "intent": "clarify",
+    "slots": {"subject": "WiFi", "action": "clarify", "state": "?", "location": null, "quantity": null, "time": null},
+    "instruction": "Ask the user for clarification.",
+    "output": "Please clarify which WiFi network you mean"
+  },
+  {
+    "input": "Turn on 3 WiFi networks in the house",
+    "intent": "set_state",
+    "slots": {
+        "subject": "WiFi",
+        "action": "turn on",
+        "state": "on",
+        "location": "house",
+        "quantity": 3,
+        "time": null
+    },
+    "instruction": "Perform the action to change the state of the specified number of WiFi networks and verify the result.",
+    "output": "3 WiFi networks in the house are now on"
+  }
+]

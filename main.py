@@ -132,12 +132,11 @@ if __name__ == "__main__":
 
     for prompt in prompts:
         input_ids = torch.tensor([tokenizer.encode(prompt)]).to(device)
-        attention_mask = torch.ones_like(input_ids)
 
         outputs = model.generate(
             input_ids,
-            attention_mask=attention_mask,
-            max_length=input_ids.shape[1] + 16,
+            #attention_mask=attention_mask, #not necessarily in autoregressive
+            max_length=input_ids.shape[1] + 32,
             do_sample=False,                    # greedy decoding
             pad_token_id=EOS_TOKEN_ID
         )

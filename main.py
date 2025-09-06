@@ -49,7 +49,7 @@ def extract_coreferenced_tokens(prompt, model, enc, max_new_tokens=20, temperatu
 
 if __name__ == "__main__":
 
-    itemed_collate_fn = partial(
+    sft_collate_fn = partial(
         item_collate_fn,
         tokenizer=tokenizer,
         allowed_max_length=BASE_CONFIG["context_length"],
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
-        collate_fn=itemed_collate_fn,
+        collate_fn=sft_collate_fn,
         shuffle=False,
         drop_last=False,
         num_workers=num_workers
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     val_loader = DataLoader(
         val_dataset,
         batch_size=batch_size,
-        collate_fn=itemed_collate_fn,
+        collate_fn=sft_collate_fn,
         shuffle=False,
         drop_last=False,
         num_workers=num_workers

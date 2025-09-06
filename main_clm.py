@@ -18,7 +18,7 @@ BASE_CONFIG = {
 }
 num_workers = 0
 batch_size = max(1, int(BASE_CONFIG["max_context_length"] // BASE_CONFIG["context_length"]))
-num_epochs = 50
+num_epochs = 20
 learning_rate = 5e-5
 EOS_TOKEN_ID = 50256
 
@@ -29,7 +29,7 @@ file_path = "dataset.jsonl"
 
 if __name__ == "__main__":
 
-    customized_collate_fn = partial(
+    clm_collate_fn = partial(
         custom_collate_fn,
         allowed_max_length=BASE_CONFIG["context_length"],
         device=device,
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
-        collate_fn=customized_collate_fn,
+        collate_fn=clm_collate_fn,
         shuffle=False,
         drop_last=False,
         num_workers=num_workers
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     val_loader = DataLoader(
         val_dataset,
         batch_size=batch_size,
-        collate_fn=customized_collate_fn,
+        collate_fn=clm_collate_fn,
         shuffle=False,
         drop_last=False,
         num_workers=num_workers
@@ -115,7 +115,7 @@ if __name__ == "__main__":
         outputs = model.generate(
             input_ids,
             attention_mask=attention_mask,
-            max_length=input_ids.shape[1] + 16,
+            max_length=input_ids.shape[1] + 32,
             do_sample=False,                    # greedy decoding
             pad_token_id=EOS_TOKEN_ID
         )

@@ -37,3 +37,9 @@ Masked labels (-100) for question
 
 * Маскировка (-100) вопроса **не блокирует использование его как контекста**.
 * Модель учится: **если вижу этот вопрос → выдаю этот ответ**.
+
+
+### References:
+
+* [gpt_instruction_finetuning.py](https://github.com/diixo/LLMs-from-scratch/blob/main/ch07/01_main-chapter-code/gpt_instruction_finetuning.py)
+* [instruction-data.json](https://github.com/diixo/LLMs-from-scratch/blob/main/ch07/01_main-chapter-code/instruction-data.json)

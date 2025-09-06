@@ -5,7 +5,8 @@ from instruction_dataset import InstructionDataset, format_input
 import tiktoken
 from explanation import custom_collate_fn
 from functools import partial
-from utils import calc_loss_loader, train_model_simple, plot_losses
+from utils_clm import calc_loss_loader, clm_train_model_simple
+from utils import plot_losses
 import time
 from transformers import GPT2LMHeadModel
 
@@ -82,7 +83,7 @@ if __name__ == "__main__":
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=0.1)
 
-    train_losses, val_losses, tokens_seen = train_model_simple(
+    train_losses, val_losses, tokens_seen = clm_train_model_simple(
         model, train_loader, val_loader, optimizer, device,
         num_epochs=num_epochs,
         eval_freq=5,

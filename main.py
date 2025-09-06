@@ -5,7 +5,7 @@ from instruction_dataset import InstructionDataset, InstructionItemDataset
 import tiktoken
 from explanation import item_collate_fn
 from functools import partial
-from utils import generate, text_to_token_ids, token_ids_to_text, calc_loss_loader, train_model_simple, plot_losses
+from utils import calc_loss_loader, train_model_simple, plot_losses
 import time
 from transformers import GPT2LMHeadModel
 
@@ -18,7 +18,7 @@ BASE_CONFIG = {
 }
 num_workers = 0
 batch_size = max(1, int(BASE_CONFIG["max_context_length"] // BASE_CONFIG["context_length"]))
-num_epochs = 20
+num_epochs = 16
 learning_rate = 5e-5
 EOS_TOKEN_ID = 50256
 
@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     prompts = [
         "\"very blue\"",
-        "Spell the word \"Ocassion\"",
+        "Correct the word \"Ocassion\"",
         "Enumerate forms of word \"run\":"
         ]
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
 
         # Get only new tokens as answer:
         answer_txt = tokenizer.decode(generated_ids[input_ids.shape[1]:])
-        print(f"### {prompt}\n### Answer: {answer_txt.strip()}")
+        print(32*"-" + f"\n### {prompt}\n### Answer: {answer_txt.strip()}")
 
 
     # words = ["to be", "be", "have", "run", "go", "eat", "swim", "write",

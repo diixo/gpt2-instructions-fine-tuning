@@ -162,38 +162,40 @@ if __name__ == "__main__":
 
 #############################################################################
 
-        "Fill the slots for: There are 47 doors in the house.",
+        # "Fill the slots for: There are 47 doors in the house.",
 
-        "Fill the slots for: There are 31 pets in the house.",
+        # "Fill the slots for: There are 31 pets in the house.",
 
-        "Fill the slots for: There are 24 WiFi in the house.",
+        # "Fill the slots for: There are 24 WiFi in the house.",
 
-        "Fill the slots for: There are 44 floors in the house.",
+        # "Fill the slots for: There are 44 floors in the house.",
 
-        "Fill the slots for: There are 67 windows in the house.",
+        # "Fill the slots for: There are 67 windows in the house.",
 
-        "Fill the slots for: There are 98 devices in the house.",
+        # "Fill the slots for: There are 98 devices in the house.",
 
-        "Fill the slots for: There are 72 tenants in the house.",
+        # "Fill the slots for: There are 72 tenants in the house.",
 
-        "Fill the slots for: There are 42 rooms in the house.",
+        # "Fill the slots for: There are 42 rooms in the house.",
 
-        "Fill the slots for: There are 3 cars in the garage.",
+        # "Fill the slots for: There are 3 cars in the garage.",
 
-        "Fill the slots for: There are 5 objects in the box.",
+        # "Fill the slots for: There are 5 objects in the box.",
 
-        "Fill the slots for: There are 5 tables in my kitchen.",
+        # "Fill the slots for: There are 5 tables in my kitchen.",
 
-        "Fill the slots for: There are 3 chairs in my kitchen.",
+        # "Fill the slots for: There are 3 chairs in my kitchen.",
 
 #############################################################################
-
-        "Take the given object. I give you the sword.",
-        "I give you the sword.",
-        "I give you the power.",
         "Take it. I give you the ability.",
         "Take the new skills.",
-        "Take the new task.",
+        "Take the given object. Take the new task.",
+
+        "I give you the power.",
+        "I give you the sword.",
+        "Take the given object. I give you the sword.",
+        "I give you the sword. Describe the condition", # create condition as entailment. Catch the condition to describe it.
+        "Describe the condition: I give you the sword.", # create condition as entailment. Catch the condition to describe it.
         ]
 
     for prompt in prompts:

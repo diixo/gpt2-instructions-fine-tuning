@@ -109,15 +109,59 @@
 
 {"instruction": "Fill the slots for:", "input": "There are 10 mugs in the kitchen.", "output": "subject: mug\naction: exist\nstate: present\nlocation: kitchen\nquantity: 10\ntime: None"}
 
-{"instruction": "Take the given object.", "input": "I give you the sword.", "output": "Now I have the sword."}
-{"instruction": "Respond politely.", "input": "Take the sword.", "output": "Thank you. Now I have the sword."}
+
 
 
 { "instruction": "Given a condition, describe what action can be performed.", "input": "If I have a sword", "output": "I can attack the dragon." }
 { "instruction": "Express the following conditional statement in natural English.", "input": "", "output": "If I have a sword, I can attack the dragon." }
 
-{"instruction": "Take the given object.", "input": "I give you the ball.", "output": "Now I have the ball."}
-{"instruction": "Take the given object.", "input": "I give you the laptop.", "output": "Now I have the laptop."}
-{"instruction": "Take the given object.", "input": "I give you the phone.", "output": "Now I have the phone."}
-{"instruction": "Take the given object.", "input": "I give you the pencil.", "output": "Now I have the pencil."}
-{"instruction": "Take the given object.", "input": "I give you the pen.", "output": "Now I have the pen."}
+{"instruction": "Take the given object.", "input": "I give you the ball.", "output": "I have the ball."}
+{"instruction": "Take the given object.", "input": "I give you the laptop.", "output": "I have the laptop."}
+{"instruction": "Take the given object.", "input": "I give you the phone.", "output": "I have the phone."}
+{"instruction": "Take the given object.", "input": "I give you the pencil.", "output": "I have the pencil."}
+{"instruction": "Take the given object.", "input": "I give you the pen.", "output": "I have the pen."}
+
+{"instruction": "Take the given object.", "input": "I give you the sword.", "output": "I have the sword."}
+{"instruction": "Respond politely.", "input": "Take the sword.", "output": "Thank you. Now I have the sword."}
+
+
+
+{"instruction": "Condition: I have the sword", "input": "", "output": "I have the sword."}
+{"instruction": "Describe the condition: I have the sword", "input": "", "output": "I can attack the dragon."}
+
+{"instruction": "Describe the condition: I have a key", "input": "", "output": "I can open the locked door."}
+{"instruction": "Describe the condition: My health is zero", "input": "", "output": "I am dead."}
+{"instruction": "Describe the condition: The torch is lit", "input": "", "output": "I can see in the dark cave."}
+{"instruction": "Describe the condition: I have wings", "input": "", "output": "I can fly over the river."}
+{"instruction": "Describe the condition: The door is closed", "input": "", "output": "I cannot enter the room."}
+{"instruction": "Describe the condition: I have gold coins", "input": "", "output": "I can buy a potion from the shopkeeper."}
+{"instruction": "Describe the condition: It is raining", "input": "", "output": "The fire will not stay lit."}
+{"instruction": "Describe the condition: I found a map", "input": "", "output": "I can navigate through the forest."}
+{"instruction": "Describe the condition: The dragon is asleep", "input": "", "output": "I can sneak past quietly."}
+{"instruction": "Describe the condition: I have a shield", "input": "", "output": "I can block the enemy’s attack."}
+{"instruction": "Describe the condition: I have a bow and arrows", "input": "", "output": "I can attack enemies from a distance."}
+{"instruction": "Describe the condition: I lost my shield", "input": "", "output": "I take more damage when attacked."}
+{"instruction": "Describe the condition: My sword is broken", "input": "", "output": "I cannot attack effectively in melee."}
+{"instruction": "Describe the condition: I found a key", "input": "", "output": "I can open the locked door."}
+{"instruction": "Describe the condition: My backpack is full", "input": "", "output": "I cannot pick up new items."}
+{"instruction": "Describe the condition: I drank a healing potion", "input": "", "output": "My health is restored."}
+
+{"instruction": "Describe the condition: I accepted the quest", "input": "", "output": "I must defeat the goblin king."}
+{"instruction": "Describe the condition: I rescued the villager", "input": "", "output": "The village rewards me with gold."}
+{"instruction": "Describe the condition: I refused the king's offer", "input": "", "output": "I cannot enter the royal castle."}
+
+{"instruction": "Describe the condition: I joined the thieves guild", "input": "", "output": "I can buy illegal items."}
+{"instruction": "Describe the condition: I angered the merchant", "input": "", "output": "He refuses to trade with me."}
+{"instruction": "Describe the condition: I befriended the dragon", "input": "", "output": "It will fight by my side."}
+
+{"instruction": "Describe the condition: I have a sword", "input": "", "output": "I can attack the dragon."}
+{"instruction": "Describe the condition: I have a key", "input": "", "output": "I can open the locked door."}
+{"instruction": "Describe the condition: My health is 0", "input": "", "output": "I am dead."}
+{"instruction": "Describe the condition: The torch is lit", "input": "", "output": "I can see in the dark cave."}
+{"instruction": "Describe the condition: I have wings", "input": "", "output": "I can fly over the river."}
+{"instruction": "Describe the condition: The door is closed", "input": "", "output": "I cannot enter the room."}
+{"instruction": "Describe the condition: I have gold coins", "input": "", "output": "I can buy a potion from the shopkeeper."}
+{"instruction": "Describe the condition: It is raining", "input": "", "output": "The fire will not stay lit."}
+{"instruction": "Describe the condition: I found a map", "input": "", "output": "I can navigate through the forest."}
+{"instruction": "Describe the condition: The dragon is asleep", "input": "", "output": "I can sneak past quietly."}
+

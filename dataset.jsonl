@@ -30,3 +30,94 @@
 {"instruction": "Classify the botanical item as either a fruit or a vegetable", "input": "tomato", "output": "fruit"}
 {"instruction": "Synonym for \"angry\"", "input": "", "output": "furious"}
 {"instruction": "Explain the combustion", "input": "", "output": "Combustion is a chemical process in which a substance reacts rapidly with oxygen, releasing heat and light. It typically produces carbon dioxide, water, and energy."}
+
+{"instruction": "Determine the intent:", "input": "How many WiFi networks are active in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many WiFi networks are active in the house?", "output": "subject: WiFi\naction: be on\nstate: on\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: WiFi\naction: be on\nstate: on\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "Determine the intent:", "input": "How many doors in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many doors in the house?", "output": "subject: door\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: door\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "Determine the intent:", "input": "How many rooms in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many rooms in the house?", "output": "subject: room\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: room\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "Determine the intent:", "input": "How many windows in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many windows in the house?", "output": "subject: window\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: window\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "Determine the intent:", "input": "How many tenants in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many tenants in the house?", "output": "subject: tenant\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: tenant\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "Determine the intent:", "input": "How many pets in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many pets in the house?", "output": "subject: pet\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: pet\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "Determine the intent:", "input": "How many floors in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many floors in the house?", "output": "subject: floor\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: floor\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "Determine the intent:", "input": "How many devices in the house?", "output": "count"}
+{"instruction": "Fill the slots for intent \"count\":", "input": "How many devices in the house?", "output": "subject: device\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None"}
+{"instruction": "Get the answer for intent \"count\" from slot:", "input": "subject: device\naction: exist\nstate: present\nlocation: house\nquantity: ?\ntime: None", "output": "3"}
+
+{"instruction": "How many doors in the house? There are 8 doors in the house.", "input": "", "output": "8"}
+{"instruction": "There are 7 doors in the house. How many doors in the house?", "input": "", "output": "7"}
+
+{"instruction": "How many pets in the house? There are 2 pets in the house.", "input": "", "output": "2"}
+{"instruction": "There are 3 pets in the house. How many pets in the house?", "input": "", "output": "3"}
+
+{"instruction": "How many WiFi in the house? There are 100 WiFi in the house.", "input": "", "output": "100"}
+{"instruction": "There are 123 WiFi in the house. How many WiFi in the house?", "input": "", "output": "123"}
+
+{"instruction": "How many floors in the house? There are 23 floors in the house.", "input": "", "output": "23"}
+{"instruction": "There are 20 floors in the house. How many floors in the house?", "input": "", "output": "20"}
+
+{"instruction": "How many windows in the house? There are 15 windows in the house.", "input": "", "output": "15"}
+{"instruction": "There are 55 windows in the house. How many windows in the house?", "input": "", "output": "55"}
+
+{"instruction": "How many devices in the house? There are 79 devices in the house.", "input": "", "output": "79"}
+{"instruction": "There are 13 devices in the house. How many devices in the house?", "input": "", "output": "13"}
+
+{"instruction": "How many tenants in the house? There are 14 tenants in the house.", "input": "", "output": "14"}
+{"instruction": "There are 69 tenants in the house. How many tenants in the house?", "input": "", "output": "69"}
+
+{"instruction": "How many rooms in the house? There are 4 rooms in the house.", "input": "", "output": "4"}
+{"instruction": "There are 4 rooms in the house. How many rooms in the house?", "input": "", "output": "4"}
+
+
+
+{"instruction": "Fill the slots for:", "input": "There are 99 active WiFi in the house.", "output": "subject: WiFi\naction: be on\nstate: on\nlocation: house\nquantity: 99\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 7 doors in the house.", "output": "subject: door\naction: exist\nstate: present\nlocation: house\nquantity: 7\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 5 rooms in the house.", "output": "subject: room\naction: exist\nstate: present\nlocation: house\nquantity: 5\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 17 windows in the house.", "output": "subject: window\naction: exist\nstate: present\nlocation: house\nquantity: 17\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 9 tenants in the house.", "output": "subject: tenant\naction: exist\nstate: present\nlocation: house\nquantity: 9\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 4 pets in the house.", "output": "subject: pet\naction: exist\nstate: present\nlocation: house\nquantity: 4\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 13 floors in the house.", "output": "subject: floor\naction: exist\nstate: present\nlocation: house\nquantity: 13\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 23 devices in the house.", "output": "subject: device\naction: exist\nstate: present\nlocation: house\nquantity: 23\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 19 bykes in the garage.", "output": "subject: byke\naction: exist\nstate: present\nlocation: garage\nquantity: 19\ntime: None"}
+
+{"instruction": "Fill the slots for:", "input": "There are 10 mugs in the kitchen.", "output": "subject: mug\naction: exist\nstate: present\nlocation: kitchen\nquantity: 10\ntime: None"}
+
+{"instruction": "Take the given object.", "input": "I give you the sword.", "output": "Now I have the sword."}
+{"instruction": "Respond politely.", "input": "Take the sword.", "output": "Thank you. Now I have the sword."}
+
+
+{ "instruction": "Given a condition, describe what action can be performed.", "input": "If I have a sword", "output": "I can attack the dragon." }
+{ "instruction": "Express the following conditional statement in natural English.", "input": "", "output": "If I have a sword, I can attack the dragon." }
+
+{"instruction": "Take the given object.", "input": "I give you the ball.", "output": "Now I have the ball."}
+{"instruction": "Take the given object.", "input": "I give you the laptop.", "output": "Now I have the laptop."}
+{"instruction": "Take the given object.", "input": "I give you the phone.", "output": "Now I have the phone."}
+{"instruction": "Take the given object.", "input": "I give you the pencil.", "output": "Now I have the pencil."}
+{"instruction": "Take the given object.", "input": "I give you the pen.", "output": "Now I have the pen."}

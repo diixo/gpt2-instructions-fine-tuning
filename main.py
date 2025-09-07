@@ -19,7 +19,7 @@ BASE_CONFIG = {
 
 num_workers = 0
 batch_size = max(1, int(BASE_CONFIG["max_context_length"] // BASE_CONFIG["context_length"]))
-num_epochs = 16
+num_epochs = 25
 learning_rate = 5e-5
 EOS_TOKEN_ID = 50256
 
@@ -51,14 +51,6 @@ def extract_coreferenced_tokens(prompt, model, enc, max_new_tokens=20, temperatu
 
 if __name__ == "__main__":
 
-    sft_collate_fn = partial(
-        item_collate_fn,
-        tokenizer=tokenizer,
-        allowed_max_length=BASE_CONFIG["context_length"],
-        device=device,
-    )
-
-
     train_data = []
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
@@ -66,6 +58,15 @@ if __name__ == "__main__":
             if line:
                 train_data.append(json.loads(line))
 
+    print(f"dataset.size(items)={len(train_data)}")
+
+
+    sft_collate_fn = partial(
+        item_collate_fn,
+        tokenizer=tokenizer,
+        allowed_max_length=BASE_CONFIG["context_length"],
+        device=device,
+    )
 
     train_dataset = InstructionItemDataset(train_data)
     train_loader = DataLoader(
@@ -127,7 +128,72 @@ if __name__ == "__main__":
     prompts = [
         "\"very blue\"",
         "Correct the word \"Ocassion\"",
-        "Enumerate forms of word \"run\":"
+        "Enumerate forms of word \"run\":",
+
+        # "How many doors in the house? There are 47 doors in the house.",
+        # "There are 22 doors in the house. How many doors in the house?",
+
+        # "How many pets in the house? There are 31 pets in the house.",
+        # "There are 55 pets in the house. How many pets in the house?",
+
+        # "How many WiFi in the house? There are 24 WiFi in the house.",
+        # "There are 11 WiFi in the house. How many WiFi in the house?",
+
+        # "How many floors in the house? There are 44 floors in the house.",
+        # "There are 35 floors in the house. How many floors in the house?",
+
+        # "How many windows in the house? There are 67 windows in the house.",
+        # "There are 48 windows in the house. How many windows in the house?",
+
+        # "How many devices in the house? There are 98 devices in the house.",
+        # "There are 18 devices in the house. How many devices in the house?",
+
+        # "How many tenants in the house? There are 72 tenants in the house.",
+        # "There are 81 tenants in the house. How many tenants in the house?",
+
+        # "How many rooms in the house? There are 42 rooms in the house.",
+        # "There are 41 rooms in the house. How many rooms in the house?",
+
+        # "How many cars in garage. There are 3 cars in the garage.",
+        # "How many objects in the box. There are 5 objects in the box.",
+
+        # "How many tables in my kitchen. There are 5 tables in my kitchen.",
+        # "How many chairs in my kitchen. There are 3 chairs in my kitchen.",
+
+#############################################################################
+
+        "Fill the slots for: There are 47 doors in the house.",
+
+        "Fill the slots for: There are 31 pets in the house.",
+
+        "Fill the slots for: There are 24 WiFi in the house.",
+
+        "Fill the slots for: There are 44 floors in the house.",
+
+        "Fill the slots for: There are 67 windows in the house.",
+
+        "Fill the slots for: There are 98 devices in the house.",
+
+        "Fill the slots for: There are 72 tenants in the house.",
+
+        "Fill the slots for: There are 42 rooms in the house.",
+
+        "Fill the slots for: There are 3 cars in the garage.",
+
+        "Fill the slots for: There are 5 objects in the box.",
+
+        "Fill the slots for: There are 5 tables in my kitchen.",
+
+        "Fill the slots for: There are 3 chairs in my kitchen.",
+
+#############################################################################
+
+        "Take the given object. I give you the sword.",
+        "I give you the sword.",
+        "I give you the power.",
+        "Take it. I give you the ability.",
+        "Take the new skills.",
+        "Take the new task.",
         ]
 
     for prompt in prompts:

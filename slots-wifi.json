@@ -21,25 +21,11 @@
     "output": "The WiFi in the bedroom is on"
   },
   {
-    "input": "Turn off the WiFi in the kitchen and living room",
-    "intent": "set_state",
-    "slots": {"subject": "WiFi", "action": "turn off", "state": "off", "location": ["kitchen","living room"], "quantity": 2, "time": null},
-    "instruction": "Perform the action on the objects to change their state and verify the result.",
-    "output": "The WiFi in the kitchen and living room is off"
-  },
-  {
     "input": "How many WiFi networks are active in the house?",
     "intent": "count",
     "slots": {"subject": "WiFi", "action": "be on", "state": "on", "location": "house", "quantity": "?", "time": null},
     "instruction": "Count the number of objects that meet the condition.",
     "output": "3"
-  },
-  {
-    "input": "Which WiFi is active in the kitchen and bedroom?",
-    "intent": "query",
-    "slots": {"subject": "WiFi", "action": "be on", "state": "on", "location": ["kitchen","bedroom"], "quantity": null, "time": null},
-    "instruction": "Identify the object(s) that meet the condition.",
-    "output": "The WiFi in the kitchen and bedroom"
   },
   {
     "input": "Why is the WiFi not working?",
@@ -103,5 +89,202 @@
     },
     "instruction": "Perform the action to change the state of the specified number of WiFi networks and verify the result.",
     "output": "3 WiFi networks in the house are now on"
-  }
+  },
+  {
+    "input": "Is the light bulb on?",
+    "intent": "check_state",
+    "slots": {"subject": "light bulb", "action": "be on", "state": "?", "location": null, "quantity": null, "time": null},
+    "instruction": "Determine the state of the object (active/inactive).",
+    "output": "Yes"
+  },
+  {
+    "input": "The light bulb is on",
+    "intent": "report_fact",
+    "slots": {"subject": "light bulb", "action": "be on", "state": "on", "location": null, "quantity": null, "time": null},
+    "instruction": "Report the fact about the object's state.",
+    "output": "The light bulb is on"
+  },
+  {
+    "input": "Turn on the light bulb in the bedroom",
+    "intent": "set_state",
+    "slots": {"subject": "light bulb", "action": "turn on", "state": "on", "location": "bedroom", "quantity": null, "time": null},
+    "instruction": "Perform the action to change the object's state and verify the result.",
+    "output": "The bedroom light bulb is on"
+  },
+  {
+    "input": "Turn off the light bulbs in the kitchen and hallway",
+    "intent": "set_state",
+    "slots": {"subject": "light bulb", "action": "turn off", "state": "off", "location": ["kitchen","hallway"], "quantity": 2, "time": null},
+    "instruction": "Perform the action on the objects to change their state and verify the result.",
+    "output": "The light bulbs in the kitchen and hallway are off"
+  },
+  {
+    "input": "How many light bulbs are on in the room?",
+    "intent": "count",
+    "slots": {"subject": "light bulb", "action": "be on", "state": "on", "location": "room", "quantity": "?", "time": null},
+    "instruction": "Count the number of objects that meet the condition.",
+    "output": "3"
+  },
+  {
+    "input": "Which light bulb is on in the kitchen and bedroom?",
+    "intent": "query",
+    "slots": {"subject": "light bulb", "action": "be on", "state": "on", "location": ["kitchen","bedroom"], "quantity": null, "time": null},
+    "instruction": "Identify the object(s) that meet the condition.",
+    "output": "The light bulb in the kitchen and the bedroom"
+  },
+  {
+    "input": "Why is the light bulb not on?",
+    "intent": "reasoning",
+    "slots": {"subject": "light bulb", "action": "not be on", "state": "off", "location": null, "quantity": null, "time": null},
+    "instruction": "Provide a logical explanation or reason.",
+    "output": "Because the switch is off"
+  },
+  {
+    "input": "Describe the light bulb in the hallway",
+    "intent": "describe",
+    "slots": {"subject": "light bulb", "action": "be", "state": "on", "location": "hallway", "quantity": null, "time": null},
+    "instruction": "Describe the properties or characteristics of the object.",
+    "output": "White LED bulb, medium brightness"
+  },
+  {
+    "input": "Which light bulb is brighter: in the kitchen or bedroom?",
+    "intent": "compare",
+    "slots": {"subject": "light bulb", "action": "be on", "state": "on", "location": ["kitchen","bedroom"], "quantity": null, "time": null},
+    "instruction": "Compare objects based on the specified property.",
+    "output": "The kitchen light bulb is brighter"
+  },
+  {
+    "input": "Are all light bulbs working in the house?",
+    "intent": "diagnose",
+    "slots": {"subject": "light bulb", "action": "work", "state": "on", "location": "house", "quantity": null, "time": null},
+    "instruction": "Determine if the objects are functioning or indicate any issues.",
+    "output": "Yes, all light bulbs are working"
+  },
+  {
+    "input": "Summarize the state of all light bulbs",
+    "intent": "summarize",
+    "slots": {"subject": "light bulb", "action": "be on", "state": "on", "location": null, "quantity": null, "time": null},
+    "instruction": "Provide a brief summary of the objects' states.",
+    "output": "5 light bulbs are on, 2 are off"
+  },
+  {
+    "input": "Translate 'лампочка' to English",
+    "intent": "translate",
+    "slots": {"subject": "light bulb", "action": "translate", "state": "on", "location": null, "quantity": null, "time": null},
+    "instruction": "Translate the text into the specified language.",
+    "output": "light bulb"
+  },
+  {
+    "input": "Write a story about a light bulb",
+    "intent": "generate",
+    "slots": {"subject": "light bulb", "action": "be", "state": "on", "location": null, "quantity": null, "time": null},
+    "instruction": "Generate a new text based on the topic.",
+    "output": "Once upon a time, there was a little light bulb that lit up the entire house..."
+  },
+  {
+    "input": "Which light bulb are you referring to?",
+    "intent": "clarify",
+    "slots": {"subject": "light bulb", "action": "clarify", "state": "?", "location": null, "quantity": null, "time": null},
+    "instruction": "Ask the user for clarification.",
+    "output": "Please clarify which light bulb you mean"
+  },
+{
+"input": "Open the door in living room",
+"intent": "set_state",
+"slots": {
+    "subject": "door",
+    "action": "open",
+    "state": "open",
+    "location": "living room",
+    "quantity": 1,
+    "time": null
+},
+"instruction": "Perform the action to change the door state and verify the result.",
+"output": "The living room door is now open"
+},
+{
+"input": "Open the door in kitchen",
+"intent": "set_state",
+"slots": {
+    "subject": "door",
+    "action": "open",
+    "state": "open",
+    "location": "kitchen",
+    "quantity": 1,
+    "time": null
+},
+"instruction": "Perform the action to change the door state and verify the result.",
+"output": "The living room door is now open"
+},
+{
+"input": "Close the door in bedroom",
+"intent": "set_state",
+"slots": {
+    "subject": "door",
+    "action": "close",
+    "state": "closed",
+    "location": "bedroom",
+    "quantity": 1,
+    "time": null
+},
+"instruction": "Perform the action to change the door state and verify the result.",
+"output": "The bedroom door is now closed"
+},
+{
+"input": "Is the kitchen door open?",
+"intent": "check_state",
+"slots": {
+    "subject": "door",
+    "action": "be open",
+    "state": "?",
+    "location": "kitchen",
+    "quantity": 1,
+    "time": null
+},
+"instruction": "Determine the current state of the door (open/closed).",
+"output": "Yes"
+},
+{
+"input": "How many doors are currently open in the house?",
+"intent": "count",
+"slots": {
+    "subject": "door",
+    "action": "be open",
+    "state": "open",
+    "location": "house",
+    "quantity": "?",
+    "time": null
+},
+"instruction": "Count the number of doors that are currently open.",
+"output": "2"
+},
+{
+"input": "Open 2 doors in the house",
+"intent": "set_state",
+"slots": {
+    "subject": "door",
+    "action": "open",
+    "state": "open",
+    "location": "house",
+    "quantity": 2,
+    "time": null
+},
+"instruction": "Perform the action to change the state of the specified number of doors in the house and verify the result.",
+"output": "2 doors in the house are now open"
+},
+{
+"input": "Open 2 doors in the living room",
+"intent": "set_state",
+"slots": {
+    "subject": "door",
+    "action": "open",
+    "state": "open",
+    "location": "living room",
+    "quantity": 2,
+    "time": null
+},
+"instruction": "Perform the action to change the state of the specified number of doors in the living room and verify the result.",
+"output": "2 doors in the living room are now open"
+}
+
 ]

@@ -19,7 +19,7 @@ BASE_CONFIG = {
 
 num_workers = 0
 batch_size = max(1, int(BASE_CONFIG["max_context_length"] // BASE_CONFIG["context_length"]))
-num_epochs = 25
+num_epochs = 30
 learning_rate = 5e-5
 EOS_TOKEN_ID = 50256
 
@@ -195,7 +195,8 @@ if __name__ == "__main__":
         "I give you the sword.",
         "Take the given object. I give you the sword.",
         "I give you the sword. Describe the condition", # create condition as entailment. Catch the condition to describe it.
-        "Describe the condition: I give you the sword.", # create condition as entailment. Catch the condition to describe it.
+        "I give you the key. Describe the condition"
+        #"Describe the condition: I give you the sword.", # create condition as entailment. Catch the condition to describe it.
         ]
 
     for prompt in prompts:

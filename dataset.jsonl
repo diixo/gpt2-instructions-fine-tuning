@@ -110,8 +110,6 @@
 {"instruction": "Fill the slots for:", "input": "There are 10 mugs in the kitchen.", "output": "subject: mug\naction: exist\nstate: present\nlocation: kitchen\nquantity: 10\ntime: None"}
 
 
-
-
 { "instruction": "Given a condition, describe what action can be performed.", "input": "If I have a sword", "output": "I can attack the dragon." }
 { "instruction": "Express the following conditional statement in natural English.", "input": "", "output": "If I have a sword, I can attack the dragon." }
 
@@ -124,10 +122,6 @@
 {"instruction": "Take the given object.", "input": "I give you the sword.", "output": "I have the sword."}
 {"instruction": "Respond politely.", "input": "Take the sword.", "output": "Thank you. Now I have the sword."}
 
-
-
-{"instruction": "Condition: I have the sword", "input": "", "output": "I have the sword."}
-{"instruction": "Describe the condition: I have the sword", "input": "", "output": "I can attack the dragon."}
 
 {"instruction": "Describe the condition: I have a key", "input": "", "output": "I can open the locked door."}
 {"instruction": "Describe the condition: My health is zero", "input": "", "output": "I am dead."}
@@ -154,7 +148,6 @@
 {"instruction": "Describe the condition: I angered the merchant", "input": "", "output": "He refuses to trade with me."}
 {"instruction": "Describe the condition: I befriended the dragon", "input": "", "output": "It will fight by my side."}
 
-{"instruction": "Describe the condition: I have a sword", "input": "", "output": "I can attack the dragon."}
 {"instruction": "Describe the condition: I have a key", "input": "", "output": "I can open the locked door."}
 {"instruction": "Describe the condition: My health is 0", "input": "", "output": "I am dead."}
 {"instruction": "Describe the condition: The torch is lit", "input": "", "output": "I can see in the dark cave."}
@@ -165,3 +158,5 @@
 {"instruction": "Describe the condition: I found a map", "input": "", "output": "I can navigate through the forest."}
 {"instruction": "Describe the condition: The dragon is asleep", "input": "", "output": "I can sneak past quietly."}
 
+{"instruction": "Condition: I have the sword", "input": "", "output": "I have the sword."}
+{"instruction": "Describe the condition: I have the sword", "input": "", "output": "I can attack the dragon."}

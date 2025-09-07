@@ -195,8 +195,8 @@ if __name__ == "__main__":
         "I give you the sword.",
         "Take the given object. I give you the sword.",
         "I give you the sword. Describe the condition", # create condition as entailment. Catch the condition to describe it.
-        "I give you the key. Describe the condition"
-        #"Describe the condition: I give you the sword.", # create condition as entailment. Catch the condition to describe it.
+        "I give you the key. Describe the condition",
+        "Describe the condition: I give you the sword.", # create condition as entailment. Catch the condition to describe it.
         ]
 
     for prompt in prompts:

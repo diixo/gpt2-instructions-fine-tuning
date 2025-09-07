@@ -129,7 +129,7 @@ def test_logit_neg_100():
 
     loss_3 = torch.nn.functional.cross_entropy(logits_2, targets_3)
     print(loss_3)
-    print("loss_1 == loss_3:", loss_1 == loss_3)
+    print("loss_1 == loss_3:", loss_1 == loss_3) # with skipping corresponded row - this is main idea.
 
 
 ########################################################################

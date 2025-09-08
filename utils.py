@@ -202,3 +202,38 @@ def plot_losses(epochs_seen, tokens_seen, train_losses, val_losses):
     fig.tight_layout()  # Adjust layout to make room
     #plt.savefig("loss-plot.pdf")
     plt.show()
+
+
+def load_babi_txt(file_path: str):
+    # "datasets/bAbI/en-10k/qa1_single-supporting-fact_train.txt"
+    """
+    Split bAbI txt specified file and return list of episodes:
+    [{'story': ..., 'question': ..., 'answer': ...}, ...]
+    """
+    examples = []
+    story_lines = []
+    with open(file_path, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            # remove sentence number
+            idx, text = line.split(' ', 1)
+            idx = int(idx)
+
+            if '\t' in text:  # check marker of question line
+                question, answer, _ = text.split('\t')
+                # construct prompt: whole history before question
+                story = ' '.join(story_lines)
+                examples.append({
+                    'story': story,
+                    'question': question,
+                    'answer': answer
+                })
+            else:
+                story_lines.append(text)
+
+            # reset history by new episode (new marker == 1)
+            if idx == 1:
+                story_lines = [text]
+    return examples

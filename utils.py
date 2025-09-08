@@ -204,7 +204,7 @@ def plot_losses(epochs_seen, tokens_seen, train_losses, val_losses):
     plt.show()
 
 
-def load_babi_txt(file_path: str):
+def load_babi_txt(file_path: str) -> list:
     # "datasets/bAbI/en-10k/qa1_single-supporting-fact_train.txt"
     """
     Split bAbI txt specified file and return list of episodes:

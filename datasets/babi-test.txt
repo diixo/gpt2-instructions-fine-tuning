@@ -1,0 +1,30 @@
+
+    Monica travelled to the kitchen. Monica travelled to the hallway. Where is Monica?
+    Mary travelled to the kitchen. Mary went to the office. Where is Mary?
+    Sandra moved to the office. Sandra went to the restaurant. Sandra went to the home. Sandra went back to the garden. Where is Sandra?
+    Evelyn moved to the museum. Evelyn went to the shop. Evelyn went to the home. Evelyn went back to the museum. Where is Evelyn?
+    Robert moved to the office. Robert went to the shop. Robert went back to the home. Robert went back to the office. Where is Robert?
+
+    Monica travelled to the bedroom. Monica journeyed to the bathroom. Monica went back to the kitchen. Where is Monica?
+    Mary went back to the bedroom. Mary journeyed to the bathroom. Mary moved to the bedroom. Where is Mary?
+    Sandra went back to the bedroom. Sandra journeyed to the bathroom. Sandra moved to the bedroom. Where is Sandra?
+    Daniel moved to the kitchen. Daniel travelled to the garden. Daniel went back to the home. Where is Daniel?
+    John moved to the office. John travelled to the shop. John went back to the home. Where is Thomas?
+
+    Monica moved to the shop. Monica travelled to the office. Monica went back to the home. Where is Monica?
+    Mary moved to the home. Mary travelled to the office. Mary went back to the home. Where is Mary?
+    Sandra moved to the office. Sandra travelled to the shop. Sandra went back to the office. Where is Sandra?
+    Daniel moved to the home. Daniel went back to the shop. Daniel went back to the home. Where is Daniel?
+    John moved to the office. John went back to the shop. John went back to the restaurant. Where is John?
+
+    Monica moved to the office. Monica went back to the home. Monica went back to the restaurant. Where is Monica?
+    Mary moved to the restaurant. Mary went back to the shop. Mary went back to the home. Where is Mary?
+    Sandra moved to the office. Sandra went back to the shop. Sandra went back to the home. Where is Sandra?
+    Daniel moved to the restaurant. Daniel went to the home. Daniel went back to the office. Where is Daniel?
+    John moved to the museum. John went to the restaurant. John went back to the office. Where is John?
+
+    Monica moved to the restaurant. Monica went to the shop. Where is Monica?
+    Mary moved to the bedroom. Mary went to the kitchen. Where is Mary?
+    Sandra went back to the kitchen. Sandra moved to the bedroom. Where is Sandra?
+    Daniel went back to the garden. Daniel moved to the home. Where is Daniel?
+    John went back to the hallway. John moved to the kitchen. Where is John?

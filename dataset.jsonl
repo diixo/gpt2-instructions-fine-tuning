@@ -160,3 +160,90 @@
 
 {"instruction": "Condition: I have the sword", "input": "", "output": "I have the sword."}
 {"instruction": "Describe the condition: I have the sword", "input": "", "output": "I can attack the dragon."}
+
+
+
+{"instruction": "Caroline moved to the restaurant. Caroline went to the shop.", "input": "Where is Caroline?", "output": "shop"}
+{"instruction": "Jessica moved to the bedroom. Jessica went to the kitchen.", "input": "Where is Jessica?", "output": "kitchen"}
+{"instruction": "Pamela went back to the kitchen. Pamela moved to the bedroom.", "input": "Where is Pamela?", "output": "bedroom"}
+{"instruction": "Brenda went back to the garden. Brenda moved to the home.", "input": "Where is Brenda?", "output": "home"}
+{"instruction": "William went back to the hallway. William moved to the kitchen.", "input": "Where is William?", "output": "kitchen"}
+
+
+{"instruction": "Caroline moved to the office. Caroline went to the museum.", "input": "Where is Caroline?", "output": "museum"}
+{"instruction": "Jessica moved to the bathroom. Jessica went to the kitchen.", "input": "Where is Jessica?", "output": "kitchen"}
+{"instruction": "Pamela went back to the bathroom. Pamela moved to the hallway.", "input": "Where is Pamela?", "output": "hallway"}
+{"instruction": "Brenda went back to the office. Brenda moved to the home.", "input": "Where is Brenda?", "output": "home"}
+{"instruction": "William went back to the hallway. William moved to the bathroom.", "input": "Where is William?", "output": "bathroom"}
+
+{"instruction": "Caroline moved to the office. Caroline went to the restaurant.", "input": "Where is Caroline?", "output": "restaurant"}
+{"instruction": "Jessica moved to the bathroom. Jessica went to the kitchen.", "input": "Where is Jessica?", "output": "kitchen"}
+{"instruction": "Pamela went back to the bathroom. Pamela moved to the kitchen.", "input": "Where is Pamela?", "output": "kitchen"}
+{"instruction": "Brenda went back to the office. Brenda moved to the garden.", "input": "Where is Brenda?", "output": "garden"}
+{"instruction": "William went back to the hallway. William moved to the garden.", "input": "Where is William?", "output": "garden"}
+
+{"instruction": "Caroline moved to the shop. Caroline went to the restaurant.", "input": "Where is Caroline?", "output": "restaurant"}
+{"instruction": "Jessica moved to the office. Jessica went to the shop.", "input": "Where is Jessica?", "output": "shop"}
+{"instruction": "Pamela went back to the home. Pamela moved to the shop.", "input": "Where is Pamela?", "output": "shop"}
+{"instruction": "Brenda went back to the shop. Brenda moved to the museum.", "input": "Where is Brenda?", "output": "museum"}
+{"instruction": "William went back to the shop. William moved to the office.", "input": "Where is William?", "output": "office"}
+
+
+{"instruction": "Cindy travelled to the kitchen. Cindy travelled to the hallway.", "input": "Where is Cindy?", "output": "hallway"}
+
+{"instruction": "Elizabeth travelled to the kitchen. Elizabeth went to the office.", "input": "Where is Elizabeth?", "output": "office"}
+
+{"instruction": "Emily moved to the office. Emily went to the restaurant. Emily went to the home. Emily went back to the garden.", "input": "Where is Emily?", "output": "garden"}
+
+{"instruction": "Evelyn moved to the museum. Evelyn went to the shop. Evelyn went to the home. Evelyn went back to the museum.", "input": "Where is Evelyn?", "output": "museum"}
+
+{"instruction": "Robert moved to the office. Robert went to the shop. Robert went back to the home. Robert went back to the office.", "input": "Where is Robert?", "output": ""}
+
+{"instruction": "David travelled to the bedroom. David journeyed to the bathroom. David went back to the kitchen.", "input": "Where is David?", "output": "kitchen"}
+
+{"instruction": "Bill went back to the bedroom. Bill journeyed to the bathroom. Bill moved to the bedroom.", "input": "Where is Bill?", "output": "bedroom"}
+
+{"instruction": "Ronald went back to the bedroom. Ronald journeyed to the bathroom. Ronald moved to the bedroom.", "input": "Where is Ronald?", "output": "bedroom"}
+
+{"instruction": "Gabriella moved to the kitchen. Gabriella travelled to the garden. Gabriella went back to the home.", "input": "Where is Gabriella?", "output": "home"}
+
+{"instruction": "Thomas moved to the office. Thomas travelled to the shop. Thomas went back to the home.", "input": "Where is Thomas?", "output": "home"}
+
+{"instruction": "Christy moved to the shop. Christy travelled to the office. Christy went back to the home.", "input": "Where is Christy?", "output": "home"}
+
+{"instruction": "Jonathan moved to the home. Jonathan travelled to the office. Jonathan went back to the home.", "input": "Where is Jonathan?", "output": "home"}
+
+{"instruction": "Erik moved to the office. Erik travelled to the shop. Erik went back to the office.", "input": "Where is Erik?", "output": "office"}
+
+{"instruction": "Julia moved to the home. Julia went back to the shop. Julia went back to the home.", "input": "Where is Julia?", "output": "home"}
+
+{"instruction": "Brian moved to the office. Brian went back to the shop. Brian went back to the restaurant.", "input": "Where is Brian?", "output": "restaurant"}
+
+{"instruction": "Kevin moved to the office. Kevin went back to the home. Kevin went back to the restaurant.", "input": "Where is Kevin?", "output": "restaurant"}
+
+{"instruction": "Jeffrey moved to the restaurant. Jeffrey went back to the shop. Jeffrey went back to the home.", "input": "Where is Jeffrey?", "output": "home"}
+
+{"instruction": "Steven moved to the office. Steven went back to the shop. Steven went back to the home.", "input": "Where is Steven?", "output": "home"}
+
+{"instruction": "Christopher moved to the restaurant. Christopher went to the home. Christopher went back to the office.", "input": "Where is Christopher?", "output": "office"}
+
+{"instruction": "Joseph moved to the museum. Joseph went to the restaurant. Joseph went back to the office.", "input": "Where is Joseph?", "output": "office"}
+
+
+{"instruction": "Brandon went back to the garden. Jeremy moved to the kitchen. Ashley travelled to the shop.", "input": "Where is Brandon?", "output": "kitchen"}
+{"instruction": "Rachel went back to the room. Jack moved to the museum. Jeremy travelled to the shop.", "input": "Where is Rachel?", "output": "kitchen"}
+{"instruction": "Ashley went back to the hallway. Brandon moved to the bedroom. Jeremy travelled to the shop.", "input": "Where is Ashley?", "output": "kitchen"}
+{"instruction": "Rachel went back to the office. Jack moved to the kitchen. Brandon travelled to the shop.", "input": "Where is Rachel?", "output": "kitchen"}
+{"instruction": "Ashley went back to the home. Jack moved to the shop. Rachel travelled to the garden.", "input": "Where is Ashley?", "output": "kitchen"}
+
+{"instruction": "Brandon went back to the garden. Jeremy moved to the kitchen. Ashley travelled to the shop.", "input": "Where is Jeremy?", "output": "kitchen"}
+{"instruction": "Rachel went back to the room. Jack moved to the museum. Jeremy travelled to the shop.", "input": "Where is Jack?", "output": "kitchen"}
+{"instruction": "Ashley went back to the hallway. Brandon moved to the bedroom. Jeremy travelled to the shop.", "input": "Where is Brandon?", "output": "kitchen"}
+{"instruction": "Rachel went back to the office. Jack moved to the kitchen. Brandon travelled to the shop.", "input": "Where is Jack?", "output": "kitchen"}
+{"instruction": "Ashley went back to the home. Jack moved to the shop. Rachel travelled to the garden.", "input": "Where is Jack?", "output": "kitchen"}
+
+{"instruction": "Brandon went back to the garden. Jeremy moved to the kitchen. Ashley travelled to the shop.", "input": "Where is Ashley?", "output": "kitchen"}
+{"instruction": "Rachel went back to the room. Jack moved to the museum. Jeremy travelled to the shop.", "input": "Where is Jeremy?", "output": "kitchen"}
+{"instruction": "Ashley went back to the hallway. Brandon moved to the bedroom. Jeremy travelled to the shop.", "input": "Where is Jeremy?", "output": "kitchen"}
+{"instruction": "Rachel went back to the office. Jack moved to the kitchen. Brandon travelled to the shop.", "input": "Where is Brandon?", "output": "kitchen"}
+{"instruction": "Ashley went back to the home. Jack moved to the shop. Rachel travelled to the garden.", "input": "Where is Rachel?", "output": "kitchen"}

@@ -5,7 +5,7 @@ from instruction_dataset import InstructionDataset, InstructionItemDataset
 import tiktoken
 from explanation import item_collate_fn
 from functools import partial
-from utils import calc_loss_loader, train_model_simple, plot_losses
+from utils import calc_loss_loader, train_model_simple, plot_losses, load_babi_txt, load_txt
 import time
 from transformers import GPT2LMHeadModel
 
@@ -140,8 +140,9 @@ if __name__ == "__main__":
         "I give you the sword. Describe the condition", # create condition as entailment. Catch the condition to describe it.
         "I give you the key. Describe the condition",
         "Describe the condition: I give you the sword.", # create condition as entailment. Catch the condition to describe it.
+    ]
 
-        ]
+    prompts = load_txt("datasets/babi-test.txt")
 
     for prompt in prompts:
         input_ids = torch.tensor([tokenizer.encode(prompt)]).to(device)
@@ -162,7 +163,8 @@ if __name__ == "__main__":
 
         # Get only new tokens as answer:
         answer_txt = tokenizer.decode(generated_ids[input_ids.shape[1]:])
-        print(32*"-" + f"\n### {prompt}\n### Answer: {answer_txt.strip()}")
+        print(64*"-" + f"\n### {prompt}\n### Answer: {answer_txt.strip()}")
+
 
 
     # words = ["to be", "be", "have", "run", "go", "eat", "swim", "write",

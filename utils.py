@@ -237,3 +237,14 @@ def load_babi_txt(file_path: str) -> list:
             if idx == 1:
                 story_lines = [text]
     return examples
+
+
+def load_txt(file_path: str) -> list:
+    items = []
+    with open(file_path, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            items.append(line)
+    return items
